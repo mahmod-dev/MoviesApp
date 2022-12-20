@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/moviesListFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.moviesapp.ui.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMovieFragment"
+        android:name="com.example.moviesapp.ui.AddMovieFragment"
+        android:label="AddMovieFragment" >
+        <argument
+            android:name="movie"
+            app:argType="com.example.moviesapp.data.entity.Movie"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.moviesapp.ui.EditProfileFragment"
+        android:label="EditProfileFragment" />
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.example.moviesapp.ui.MovieDetailsFragment"
+        android:label="MovieDetailsFragment" >
+        <argument
+            android:name="movie"
+            app:argType="com.example.moviesapp.data.entity.Movie" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesListFragment"
+        android:name="com.example.moviesapp.ui.MoviesListFragment"
+        android:label="MoviesListFragment" >
+        <action
+            android:id="@+id/action_moviesListFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_moviesListFragment_to_addMovieFragment"
+            app:destination="@id/addMovieFragment" />
+    </fragment>
+</navigation>
